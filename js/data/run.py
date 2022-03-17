@@ -13,7 +13,7 @@ for file_name in file_names:
         for row in csvReader:
             rows.append(row)
 
-    json_file_name = file_name.split(" ")[-1].replace(".csv", ".json")
+    json_file_name = file_name.split(" ")[-1].replace(".csv", ".js")
 
     with open(target_dir+"/"+json_file_name,"w") as json_file:
-        json_file.write(json.dumps(rows))
+        json_file.write("const "+json_file_name.replace(".js","")+"="+json.dumps(rows))
